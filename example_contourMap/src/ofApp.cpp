@@ -3,7 +3,7 @@
 
 void ofApp::setup() {
     ofSetVerticalSync(true);
-    ofSetWindowShape(1280, 960);
+//    ofSetWindowShape(1280, 960);
     
     blobColors[0] = ofColor(255, 0, 0);
     blobColors[1] = ofColor(0, 255, 0);
@@ -27,9 +27,9 @@ void ofApp::setup() {
     grayThreshNear.allocate(kinect.width, kinect.height);
     grayThreshFar.allocate(kinect.width, kinect.height);
     
-    kpt.loadCalibration("/Users/Gene/Desktop/calibration.xml");
+    kpt.loadCalibration("calibration.xml");
     
-    projector.setup("main", ofGetScreenWidth(), 0, PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, true);
+//    projector.setup("main", ofGetScreenWidth(), 0, PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, true);
     
     // setup gui
     gui.setup("parameters");
@@ -81,9 +81,9 @@ void ofApp::draw() {
     ofPopMatrix();
     
     gui.draw();
-    
-    // MAIN WINDOW
-    projector.begin();
+}
+    // PROJ WINDOW
+void ofApp::drawSecondWindow(ofEventArgs &args){
     
     ofBackground(0);
     
@@ -103,12 +103,12 @@ void ofApp::draw() {
         for (int j=0; j<points.size(); j++) {
             ofVec3f worldPoint = kinect.getWorldCoordinateAt(points[j].x, points[j].y);
             ofVec2f projectedPoint = kpt.getProjectedPoint(worldPoint);
-            ofVertex(projector.getWidth() * projectedPoint.x, projector.getHeight() * projectedPoint.y);
+            ofVertex(secondWindow->getWindowSize().x* projectedPoint.x, secondWindow->getWindowSize().y * projectedPoint.y);
         }
         ofEndShape();
     }
     
-    projector.end();
+//    projector.end();
 }
 
 void ofApp::keyPressed(int key) {

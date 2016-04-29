@@ -42,14 +42,27 @@ void ofxKinectProjectorToolkit::calibrate(vector<ofVec3f> pairsKinect,
     
     dlib::qr_decomposition<dlib::matrix<double, 0, 11> > qrd(A);
     x = qrd.solve(y);
+    cout << "x: "<< x << endl;
+    projMatrice = ofMatrix4x4(x(0,0), x(1,0), x(2,0), x(3,0),
+                              x(4,0), x(5,0), x(6,0), x(7,0),
+                              x(8,0), x(9,0), x(10,0), 1,
+                              0, 0, 0, 1);
     calibrated = true;
 }
 
+ofMatrix4x4 ofxKinectProjectorToolkit::getProjectionMatrix() {
+    return projMatrice;
+}
+
 ofVec2f ofxKinectProjectorToolkit::getProjectedPoint(ofVec3f worldPoint) {
-    float a = x(0, 0)*worldPoint.x + x(1, 0)*worldPoint.y + x(2, 0)*worldPoint.z + x(3,0);
-    float b = x(4, 0)*worldPoint.x + x(5, 0)*worldPoint.y + x(6, 0)*worldPoint.z + x(7,0);
-    float c = x(8, 0)*worldPoint.x + x(9, 0)*worldPoint.y + x(10, 0)*worldPoint.z + 1;
-    ofVec2f projectedPoint(a/c, b/c);
+    ofVec4f pts = ofVec4f(worldPoint);
+    pts.w = 1;
+    ofVec4f rst = projMatrice*(pts);
+    ofVec2f projectedPoint(rst.x/rst.z, rst.y/rst.z);
+//    float a = x(0, 0)*worldPoint.x + x(1, 0)*worldPoint.y + x(2, 0)*worldPoint.z + x(3,0);
+//    float b = x(4, 0)*worldPoint.x + x(5, 0)*worldPoint.y + x(6, 0)*worldPoint.z + x(7,0);
+//    float c = x(8, 0)*worldPoint.x + x(9, 0)*worldPoint.y + x(10, 0)*worldPoint.z + 1;
+//    ofVec2f projectedPoint(a/c, b/c);
     return projectedPoint;
 }
 
@@ -69,6 +82,10 @@ void ofxKinectProjectorToolkit::loadCalibration(string path){
     for (int i=0; i<11; i++) {
         x(i, 0) = xml.getValue<float>("COEFF"+ofToString(i));
     }
+    projMatrice = ofMatrix4x4(x(0,0), x(1,0), x(2,0), x(3,0),
+                              x(4,0), x(5,0), x(6,0), x(7,0),
+                              x(8,0), x(9,0), x(10,0), 1,
+                              0, 0, 0, 0);
     calibrated = true;
 }
 

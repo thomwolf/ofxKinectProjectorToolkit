@@ -4,14 +4,9 @@
 #include "ofxOpenCv.h"
 #include "ofxCv.h"
 #include "ofxKinect.h"
-#include "ofxSecondWindow.h"
+//#include "ofxSecondWindow.h"
 #include "ofxKinectProjectorToolkit.h"
 #include "ofxGui.h"
-
-
-// this must match the display resolution of your projector
-#define PROJECTOR_RESOLUTION_X 1280
-#define PROJECTOR_RESOLUTION_Y 800
 
 
 using namespace ofxCv;
@@ -24,9 +19,11 @@ public:
     void setup();
     void update();
     void draw();
+    void drawSecondWindow(ofEventArgs &args);
     void keyPressed(int key);
+    shared_ptr<ofAppBaseWindow> secondWindow;
     
-    ofxSecondWindow             projector;
+//    ofxSecondWindow             projector;
     
     ofxPanel                    gui;
     ofColor                     blobColors[12];

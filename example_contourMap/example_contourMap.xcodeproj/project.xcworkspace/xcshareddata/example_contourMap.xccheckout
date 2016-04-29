@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ECDE9C91-9F55-4C9B-BD87-F2144757A1C2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>example_contourMap</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>43D7265B-1175-4548-B7AA-588D1E015960</key>
+		<string>https://github.com/thomwolf/ofxCv.git</string>
+		<key>5E45EC80-DCC9-4962-BD50-929798C8F3C9</key>
+		<string>https://github.com/thomwolf/ofxKinectProjectorToolkit.git</string>
+		<key>7F04A150-97F2-467D-931F-414AF06C9170</key>
+		<string>https://github.com/thomwolf/ofxSecondWindow.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>example_contourMap/example_contourMap.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>43D7265B-1175-4548-B7AA-588D1E015960</key>
+		<string>../../../../ofxCv</string>
+		<key>5E45EC80-DCC9-4962-BD50-929798C8F3C9</key>
+		<string>../../..</string>
+		<key>7F04A150-97F2-467D-931F-414AF06C9170</key>
+		<string>../../../../ofxSecondWindow</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/thomwolf/ofxKinectProjectorToolkit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5E45EC80-DCC9-4962-BD50-929798C8F3C9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>43D7265B-1175-4548-B7AA-588D1E015960</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxCv</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E45EC80-DCC9-4962-BD50-929798C8F3C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxKinectProjectorToolkit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F04A150-97F2-467D-931F-414AF06C9170</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxSecondWindow</string>
+		</dict>
+	</array>
+</dict>
+</plist>

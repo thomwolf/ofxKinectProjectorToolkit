@@ -14,6 +14,7 @@ public:
                    vector<ofVec2f> pairsProjector);
     
     ofVec2f getProjectedPoint(ofVec3f worldPoint);
+    ofMatrix4x4 getProjectionMatrix();
     vector<ofVec2f> getProjectedContour(vector<ofVec3f> *worldPoints);
     
     vector<double> getCalibration();
@@ -28,6 +29,8 @@ private:
     dlib::matrix<double, 0, 11> A;
     dlib::matrix<double, 0, 1> y;
     dlib::matrix<double, 11, 1> x;
+    
+    ofMatrix4x4 projMatrice;
     
     bool calibrated;
 };
