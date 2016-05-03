@@ -19,8 +19,8 @@ public:
     
     vector<double> getCalibration();
 
-    void loadCalibration(string path);
-    void saveCalibration(string path);
+    bool loadCalibration(string path);
+    bool saveCalibration(string path);
     
     bool isCalibrated() {return calibrated;}
     

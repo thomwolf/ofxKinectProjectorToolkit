@@ -75,9 +75,10 @@ vector<double> ofxKinectProjectorToolkit::getCalibration()
     return coefficients;
 }
 
-void ofxKinectProjectorToolkit::loadCalibration(string path){
+bool ofxKinectProjectorToolkit::loadCalibration(string path){
     ofXml xml;
-    xml.load(path);    
+    if (!xml.load(path))
+        return false;
     xml.setTo("CALIBRATION");
     for (int i=0; i<11; i++) {
         x(i, 0) = xml.getValue<float>("COEFF"+ofToString(i));
@@ -87,9 +88,10 @@ void ofxKinectProjectorToolkit::loadCalibration(string path){
                               x(8,0), x(9,0), x(10,0), 1,
                               0, 0, 0, 0);
     calibrated = true;
+    return true;
 }
 
-void ofxKinectProjectorToolkit::saveCalibration(string path){
+bool ofxKinectProjectorToolkit::saveCalibration(string path){
     ofXml xml;
     xml.addChild("CALIBRATION");
     xml.setTo("CALIBRATION");
@@ -99,7 +101,7 @@ void ofxKinectProjectorToolkit::saveCalibration(string path){
         xml.addXml(coeff);
     }
     xml.setToParent();
-    xml.save(path);
+    return xml.save(path);
 }
 
 
